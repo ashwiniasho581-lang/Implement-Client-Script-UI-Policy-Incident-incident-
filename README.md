@@ -199,168 +199,209 @@ function onLoad() {
         );
     }
 }# Implement-Client-Script-UI-Policy-Incident
+
 ---
 
-# 7. Testing
+7. Testing
 
-The implemented **Client Scripts and UI Policies** were tested on the ServiceNow Incident form to verify that the configured conditions and actions work correctly.
+The implemented Client Scripts and UI Policies were tested on the ServiceNow Incident form to verify that the configured conditions and actions work correctly.
 
-## 7.1 Testing Client Scripts
+7.1 Testing Client Scripts
 
-### Test 1 – Mandatory Field Validation
+Test 1 – Mandatory Field Validation
 
-**Purpose:**  
+Purpose
+
 Verify that required information is captured when the specified condition is satisfied.
 
-**Expected Result:**  
+Expected Result
+
 The required field becomes mandatory and the user cannot proceed without providing the required information.
 
-**Result:**  
+Result
+
 Passed.
 
----
+Test 2 – Dynamic Field Behavior
 
-### Test 2 – Dynamic Field Behavior
+Purpose
 
-**Purpose:**  
 Verify that the Incident form responds dynamically when the user changes field values.
 
-**Expected Result:**  
+Expected Result
+
 The related fields are displayed, hidden, or updated according to the configured Client Script.
 
-**Result:**  
+Result
+
 Passed.
 
----
+Test 3 – Priority-Based Message
 
-### Test 3 – Priority-Based Message
+Purpose
 
-**Purpose:**  
 Verify that an appropriate information message is displayed for critical incidents.
 
-**Expected Result:**  
-When an existing Incident has **Priority 1**, the configured message is displayed to remind the agent to follow the major incident process.
+Expected Result
 
-**Result:**  
+When an existing Incident has Priority 1, the configured message is displayed to remind the agent to follow the major incident process.
+
+Result
+
 Passed.
 
----
-
-## 7.2 Testing UI Policies
+7.2 Testing UI Policies
 
 The UI Policies were tested by changing the Incident state and checking the corresponding field behavior.
 
-| Test Case | Condition | Expected Behavior | Result |
-|---|---|---|---|
-| Hold Reason | State is On Hold | Hold Reason becomes visible and mandatory | Passed |
-| Closed Incident | State is Closed | Key fields become read-only | Passed |
-| Normal State | Condition is false | Fields return to normal behavior | Passed |
+Test Case	Condition	Expected Behavior	Result
 
-### Testing Summary
+Hold Reason	State is On Hold	Hold Reason becomes visible and mandatory	Passed
+Closed Incident	State is Closed	Key fields become read-only	Passed
+Normal State	Condition is false	Fields return to normal behavior	Passed
+
+
+Testing Summary
 
 The Client Scripts and UI Policies produced the expected results during testing. The Incident form behaved correctly according to the configured conditions and actions.
 
+
 ---
 
-# 8. Best Practices
+8. Best Practices
 
 The following best practices were followed while implementing Client Scripts and UI Policies.
 
-## 8.1 Client Script Best Practices
+8.1 Client Script Best Practices
 
-**Purpose:**  
+Purpose
+
 To maintain simple, reliable, and easy-to-understand scripts.
 
-- Use Client Scripts only when dynamic form behavior is required.
-- Keep JavaScript code simple and readable.
-- Use appropriate conditions to avoid unnecessary execution.
-- Provide meaningful names and descriptions.
-- Test scripts with different Incident scenarios.
+Use Client Scripts only when dynamic form behavior is required.
 
-## 8.2 UI Policy Best Practices
+Keep JavaScript code simple and readable.
 
-**Purpose:**  
+Use appropriate conditions to avoid unnecessary execution.
+
+Provide meaningful names and descriptions.
+
+Test scripts with different Incident scenarios.
+
+
+8.2 UI Policy Best Practices
+
+Purpose
+
 To control form fields without unnecessary scripting.
 
 UI Policies can be used to control:
 
-| Field Behavior | Action |
-|---|---|
-| Mandatory | Makes a field required |
-| Visible | Shows or hides a field |
-| Read-only | Prevents modification of a field |
+Field	Mandatory	Visible	Read-only
+
+Required fields	Yes	Yes	No
+Relevant fields	Based on condition	Yes	No
+Protected fields	No	Yes	Yes
+
 
 UI Policies are preferred for simple field behavior because they reduce the need for additional JavaScript.
 
-## 8.3 General Best Practices
+8.3 General Best Practices
 
-- Use clear and meaningful names.
-- Apply conditions only where required.
-- Avoid duplicate Client Scripts or UI Policies.
-- Test changes before using them in production.
-- Maintain consistent Incident form behavior.
+Use clear and meaningful names.
+
+Apply conditions only where required.
+
+Avoid duplicate Client Scripts or UI Policies.
+
+Test changes before using them in production.
+
+Maintain consistent Incident form behavior.
+
+
 
 ---
 
-# 9. Expected Benefits
+9. Expected Benefits
 
 The project provides the following benefits:
 
-- **Improved data quality.**
-- **Required information is captured at the correct time.**
-- **Cleaner Incident forms.**
-- **Relevant fields are displayed when needed.**
-- **Fewer incorrect or incomplete records.**
-- **Consistent behavior across agents.**
-- **Improved reliability of Incident data and reporting.**
-- **Better user experience through dynamic form behavior.**
+Improved data quality.
 
-### Overall Benefit
+Required information is captured at the correct time.
 
-By combining **Client Scripts and UI Policies**, the Incident form becomes more dynamic and easier for agents to use.
+Cleaner Incident forms.
+
+Relevant fields are displayed when needed.
+
+Fewer incorrect or incomplete records.
+
+Consistent behavior across agents.
+
+Improved reliability of Incident data and reporting.
+
+Better user experience through dynamic form behavior.
+
+
+Overall Benefit
+
+By combining Client Scripts and UI Policies, the Incident form becomes more dynamic and easier for agents to use.
 
 The configured rules help ensure that the right information is displayed, required, or protected at the appropriate stage of Incident processing.
 
+
 ---
 
-# 10. Conclusion
+10. Conclusion
 
-Combining **UI Policies and Client Scripts** on the ServiceNow Incident form provides an effective way to control form behavior.
+Combining UI Policies and Client Scripts on the ServiceNow Incident form provides an effective way to control form behavior.
 
-## UI Policies
+UI Policies
 
 UI Policies handle declarative rules such as:
 
-- Mandatory fields
-- Read-only fields
-- Visible fields
+Mandatory fields
+
+Read-only fields
+
+Visible fields
+
 
 They allow field behavior to change automatically based on the configured conditions.
 
-## Client Scripts
+Client Scripts
 
 Client Scripts add dynamic behavior using JavaScript.
 
 They can be used to:
 
-- Validate field values.
-- Display information messages.
-- Respond to user actions.
-- Control dynamic form behavior.
-- Perform client-side processing.
+Validate field values.
 
-## Final Outcome
+Display information messages.
 
-The project successfully demonstrates how **Client Scripts and UI Policies** can work together on the ServiceNow Incident form.
+Respond to user actions.
+
+Control dynamic form behavior.
+
+Perform client-side processing.
+
+
+Final Outcome
+
+The project successfully demonstrates how Client Scripts and UI Policies can work together on the ServiceNow Incident form.
 
 The implementation improves:
 
-- Form usability
-- Data quality
-- Validation
-- Consistency
-- Incident management efficiency
+Form usability
 
-Overall, the project provides a simple and effective approach for creating a more controlled and user-friendly **ServiceNow Incident form**.
+Data quality
 
----
+Validation
+
+Consistency
+
+Incident management efficiency
+
+
+Overall, the project provides a simple and effective approach for creating a more controlled and user-friendly ServiceNow Incident form
+
