@@ -199,3 +199,69 @@ function onLoad() {
         );
     }
 }# Implement-Client-Script-UI-Policy-Incident
+# 7. Testing and Validation
+
+Each rule should be tested using a standard agent role.
+
+Both existing and new Incident records should be tested.
+
+## Test Cases
+
+| Test | Action | Expected Result |
+|---|---|---|
+| 1 | Set State to Resolved | Resolution Code and Resolution Notes become mandatory and visible |
+| 2 | Change State from Resolved to In Progress | Resolution fields are no longer mandatory |
+| 3 | Set State to On Hold | Hold Reason appears and becomes mandatory |
+| 4 | Open an Incident with State Closed | Short Description, Category, Impact/Urgency and Assignment Group are read-only |
+| 5 | Open an existing Priority 1 Incident | Information banner is displayed |
+| 6 | Change Category on an open Incident | Subcategory is cleared |
+| 7 | Save an Incident with a 5-character Short Description | Save is blocked and an error message is shown |
+
+---
+
+# 8. Best Practices
+
+- **Use UI Policies first** because they are easier to maintain.
+- Use Client Scripts only when scripting is genuinely required.
+- Always enable **Reverse if false** where appropriate so fields return to their normal behavior.
+- Guard `onChange` scripts by checking `isLoading` and empty values.
+- Avoid using GlideRecord directly on the client.
+- Do not rely only on client-side rules for security.
+- Pair client-side rules with Data Policies or ACLs when security enforcement is required.
+- Use clear and consistent names for policies and scripts.
+
+---
+
+# 9. Expected Benefits
+
+The project provides the following benefits:
+
+- Improved data quality.
+- Required information is captured at the correct time.
+- Cleaner Incident forms.
+- Relevant fields are displayed when needed.
+- Fewer incorrect or incomplete records.
+- Consistent behavior across agents.
+- Improved reliability of incident data and reporting.
+- Better user experience through dynamic form behavior.
+
+---
+
+# 10. Conclusion
+
+Combining **UI Policies and Client Scripts** on the ServiceNow Incident form provides a lightweight way to guide users while they work.
+
+UI Policies handle declarative rules such as:
+
+- Mandatory fields
+- Read-only fields
+- Visible fields
+
+Client Scripts add:
+
+- Validation
+- Information messages
+- Dynamic field behavior
+- Custom JavaScript logic
+
+Together, they improve usability, enforce consistent data entry, and increase the quality of incident data in ServiceNow.
